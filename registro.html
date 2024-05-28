@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Registro</title>
+    <style>
+        body, html {
+            position: relative;
+            height: 100vh;
+            width: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .background {
+            background-image: url('registro (2).png'); /* Caminho da sua imagem */
+            height: 150vh;
+            width: 250vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+        }
+
+        .container {
+            width: 300vh; /* Ajuste a largura conforme necessário */
+            position: absolute;
+            top: 65vh;
+            left: 23vh;
+            font-size: 3vh;
+            font-style: italic;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+        }
+
+        .container img {
+            text-align: center;
+            margin-bottom: 20vh;
+            position: absolute;
+            top: -12vh;
+            left: 8.5vh;
+            width: 45vh;
+        }
+
+        .container input[type="text"], .container input[type="password"] {
+            width: 60vh;
+            padding: 3vh;
+            margin: 1vh 0 2vh 0;
+            display: inline-block;
+            border: -1vh solid #007491;
+            border-radius: 2vh;
+            box-sizing: border-box;
+        }
+
+        .container button {
+            position: absolute;
+            left: 16vh;
+            top: 32vh;
+            width: 28vh;
+            background-color: #012e58;
+            color: rgb(255, 255, 255);
+            padding: 2vh;
+            border: none;
+            border-radius: 3vh;
+            cursor: pointer;
+            font-size: 5vh;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .container button:hover {
+            background-color: #021a2b;
+        }
+
+        .editable-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="background">
+    <div class="container">
+        <img src="register.png" alt="Imagem de Registro">
+        <form id="registrationForm">
+            <div class="editable-label" contenteditable="true">Usuário</div>
+            <input type="text" id="username" name="username" placeholder="Seu usuário..." maxlength="6" required>
+
+            <div class="editable-label" contenteditable="true">Senha</div>
+            <input type="password" id="password" name="password" placeholder="Sua senha..." minlength="8" required>
+
+            <button type="submit">REGISTRAR</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Você foi registrado!');
+    });
+</script>
+
+</body>
+</html>

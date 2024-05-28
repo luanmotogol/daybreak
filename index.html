@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Conta</title>
+  <style>
+        body, html {
+            position: relative;
+            height: 100vh;
+            width: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .background {
+            background-image: url('registro (2).png'); /* Caminho da sua imagem */
+            height: 150vh;
+            width: 250vh;
+            background-repeat: no-repeat;
+            
+            position: absolute;
+        }
+
+        .container {
+            width: 300vh; /* Ajuste a largura conforme necessário */
+            position: absolute;
+            top: 65vh;
+            left: 23vh;
+            font-size: 3vh;
+            font-style: italic;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+        }
+
+        .container img {
+            text-align: center;
+            margin-bottom: 20vh;
+            position: absolute;
+            top: -12vh;
+            left: 8.5vh;
+            width: 45vh;
+        }
+
+        .container input[type="text"], .container input[type="password"] {
+            width: 60vh;
+            padding: 3vh;
+            margin: 1vh 0 2vh 0;
+            display: inline-block;
+            border: -1vh solid #007491;
+            border-radius: 2vh;
+            box-sizing: border-box;
+        }
+
+        .container button {
+            position: absolute;
+            left: 16vh;
+            top: 32vh;
+            width: 28vh;
+            background-color: #012e58;
+            color: rgb(255, 255, 255);
+            padding: 2vh;
+            border: none;
+            border-radius: 3vh;
+            cursor: pointer;
+            font-size: 5vh;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .container button:hover {
+            background-color: #021a2b;
+        }
+
+        .editable-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+  <h2>Registro de Conta</h2>
+  <div class="background"></div> 
+  <img src="register.png" alt="">
+  <!-- Adicionei esta div para exibir a imagem de fundo -->
+  <form id="registroForm" class="container">
+    <label for="accountName" class="editable-label">Nome da Conta:</label>
+    <input type="text" id="accountName" name="accountName"><br><br>
+    <label for="password" class="editable-label">Senha:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="submit">Registrar</button>
+  </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('registroForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const accountName = document.getElementById('accountName').value;
+        const password = document.getElementById('password').value;
+  
+        const response = await fetch('/registrar', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ UserAccount: accountName, Password: password })
+        });
+  
+        if (response.ok) {
+          console.log('Conta registrada com sucesso!');
+          alert('Conta registrada com sucesso!');
+        } else {
+          console.error('Falha ao registrar conta.');
+          alert('Falha ao registrar conta.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
