@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Top Bar Fixa</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            
+        }
+
+        
+
+        .top-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #011125;
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            display: inline;
+        }
+
+        .top-bar nav {
+            display: inline;
+            float: right;
+        }
+
+        .top-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-bar ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        .top-bar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .top-bar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-top: 70px; /* Adiciona um espaço para compensar a top bar fixa */
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Minha Top Bar</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <div class="large-background"></div>
+    </div>
+</body>
+</html>
